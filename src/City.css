@@ -1,0 +1,29 @@
+.city li {
+  list-style: none;
+}
+
+.city .temp {
+  position: relative;
+  top: 590px;
+}
+.degree {
+  font-size: 150px;
+}
+.cityName {
+  font-size: 60px;
+}
+.city .cityInfo {
+  position: relative;
+  left: 240px;
+  top: 450px;
+}
+
+.city .iconDescription {
+  position: relative;
+  left: 580px;
+  top: 335px;
+}
+.units {
+  position: relative;
+  top: -40px;
+}
