@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-
 import axios from "axios";
-
+import City from "./City";
 import "./Weather.css";
 
 const Emoji = (props) => (
@@ -15,12 +14,12 @@ const Emoji = (props) => (
   </span>
 );
 
-export default function Weather() {
+export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-
   function handleResponse(response) {
+    console.log(response);
     setWeatherData({
-      setReady: true,
+      ready: true,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidty: response.data.main.humidity,
@@ -65,17 +64,21 @@ export default function Weather() {
                   <ul>
                     <li>
                       <Emoji label="humidity" symbol="💧" /> Humidity{" "}
-                      <span className="data">50%</span>
+                      <span className="data">{weatherData.humidity}%</span>
                     </li>
                     <li>
                       <Emoji label="wind" symbol="💨" /> Wind Speed{" "}
-                      <span className="data">5km/hr</span>
+                      <span className="data">{weatherData.wind}km/hr</span>
                     </li>
                     <li>
                       Real feel<span className="data">23°C</span>{" "}
                     </li>
                   </ul>
                   <hr className="lines" />
+                </div>
+                <div>
+                  {" "}
+                  <City cityData={weatherData} />
                 </div>
               </div>
             </div>
@@ -84,11 +87,9 @@ export default function Weather() {
       </div>
     );
   } else {
-    const apiKey = "becb19409cb41e373fb4a611d804ed95";
-    let city = "Vancouver";
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    const apiKey = "bfe05af20a66a64b4d832de4736023ff";
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
-
-    return "Loading..";
+    return "load";
   }
 }
