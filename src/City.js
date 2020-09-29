@@ -1,18 +1,14 @@
 import React from "react";
+
 import "./City.css";
 
-export default function City() {
-  let cityInfo = {
-    imgUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
-    description: "Mostly Cloudy",
-    city: "Vancouver",
-  };
+export default function City(props) {
   return (
     <div className="city">
-      <div class="card-img-overlay">
+      <div className="card-img-overlay">
         <h3>
           <div className="temp">
-            <span className="degree">26</span>
+            <span className="degree"></span>
             <sup className="units">
               <a href="/" className="units active">
                 °C{" "}
@@ -26,7 +22,7 @@ export default function City() {
 
           <div className="cityInfo">
             <ul>
-              <li className="cityName">{cityInfo.city}</li>
+              <li className="cityName">{props.city}</li>
               <li className="date">
                 <small>10:30 - Sunday, 27 Sept'20 </small>
               </li>
@@ -35,9 +31,9 @@ export default function City() {
           <div className="iconDescription">
             <ul>
               <li>
-                <img src={cityInfo.imgUrl} alt={cityInfo.description} />
+                <img src={props.imgUrl} alt={props.description} />
               </li>
-              <li>{cityInfo.description}</li>
+              <li>{props.description}</li>
             </ul>
           </div>
         </h3>
