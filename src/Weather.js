@@ -13,17 +13,17 @@ const Emoji = (props) => (
     {props.symbol}
   </span>
 );
-
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
-    console.log(response);
+    console.log(response.data);
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
-      humidty: response.data.main.humidity,
+      humidity: response.data.main.humidity,
       city: response.data.name,
+      feelsLike: response.data.main.feels_like,
       description: response.data.weather[0].description,
       imgUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
     });
@@ -71,15 +71,15 @@ export default function Weather(props) {
                       <span className="data">{weatherData.wind}km/hr</span>
                     </li>
                     <li>
-                      Real feel<span className="data">23°C</span>{" "}
+                      Real feel
+                      <span className="data">
+                        {weatherData.feelsLike}°C
+                      </span>{" "}
                     </li>
                   </ul>
                   <hr className="lines" />
                 </div>
-                <div>
-                  {" "}
-                  <City cityData={weatherData} />
-                </div>
+                <City cityData={weatherData} />;
               </div>
             </div>
           </div>
