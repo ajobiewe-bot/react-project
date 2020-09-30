@@ -1,4 +1,5 @@
 import React from "react";
+import FormattedDate from "./FormattedDate";
 import "./City.css";
 
 export default function City(props) {
@@ -23,7 +24,9 @@ export default function City(props) {
             <ul>
               <li className="cityName">{props.cityData.city}</li>
               <li className="date">
-                <small>10:30 - Sunday, 27 Sept'20 </small>
+                <small>
+                  <FormattedDate date={props.cityData.date} />
+                </small>
               </li>
             </ul>
           </div>
