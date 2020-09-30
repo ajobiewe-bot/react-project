@@ -80,7 +80,7 @@ export default function Weather(props) {
                   </ul>
                   <hr className="lines" />
                 </div>
-                <City cityData={weatherData} />;
+                <City cityData={weatherData} />
               </div>
             </div>
           </div>
