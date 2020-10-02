@@ -18,7 +18,7 @@ export default function Weather(props) {
       date: new Date(response.data.dt * 1000),
       feelsLike: Math.round(response.data.main.feels_like),
       description: response.data.weather[0].description,
-      imgUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+      iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
   }
 
@@ -52,7 +52,7 @@ export default function Weather(props) {
             <div className="col-md-5">
               <div className="card-body">
                 <div className="card-text">
-                  <form onsubmit={handleSubmit}>
+                  <form onSubmit={handleSubmit}>
                     <div className="row">
                       <div className="col-10">
                         <input

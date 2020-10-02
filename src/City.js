@@ -1,5 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import WeatherTemperature from "./WeatherTemperature";
 import "./City.css";
 
 export default function City(props) {
@@ -7,19 +8,7 @@ export default function City(props) {
     <div className="city">
       <div className="card-img-overlay">
         <h3>
-          <div className="temp">
-            <span className="degree"> {props.data.temperature}</span>
-            <sup className="units">
-              <a href="/" className="units active">
-                °C{" "}
-              </a>{" "}
-              <span className="units active">|</span>
-              <a href="/" className="units">
-                °F{" "}
-              </a>
-            </sup>
-          </div>
-
+          <WeatherTemperature celsius={props.data.temperature} />
           <div className="cityInfo">
             <ul>
               <li className="cityName">{props.data.city}</li>
@@ -33,7 +22,7 @@ export default function City(props) {
           <div className="iconDescription">
             <ul>
               <li>
-                <img src={props.data.imgUrl} alt={props.data.description} />
+                <img src={props.data.iconUrl} alt={props.data.description} />
               </li>
               <li>{props.data.description}</li>
             </ul>
