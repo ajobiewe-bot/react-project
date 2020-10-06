@@ -4,7 +4,8 @@
 
 .city .temp {
   position: relative;
-  top: 590px;
+  right: 940px;
+  top: 150px;
 }
 .degree {
   font-size: 150px;
@@ -14,14 +15,15 @@
 }
 .city .cityInfo {
   position: relative;
-  left: 240px;
-  top: 450px;
+  bottom: 138px;
+  right: 510px;
+  margin: 30px;
 }
 
 .city .iconDescription {
   position: relative;
-  left: 580px;
-  top: 335px;
+  bottom: 10px;
+  right: 730px;
 }
 .units {
   position: relative;

@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import City from "./City";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       temperature: Math.round(response.data.main.temp),
@@ -40,15 +40,9 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="weather">
-        <div className="card">
+        <div className="card mb-3">
           <div className="row no-gutters">
-            <div className="col-md-7">
-              <img
-                src="https://images.pexels.com/photos/4210918/pexels-photo-4210918.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                className="card-img"
-                alt="sky"
-              />
-            </div>
+            <div className="col-md-7"></div>
             <div className="col-md-5">
               <div className="card-body">
                 <div className="card-text">
@@ -63,15 +57,18 @@ export default function Weather(props) {
                           onChange={handleLocation}
                         />
                       </div>
-                      <div className="col-2">
-                        <button type="button" className="btn btn-outline-info">
-                          Search
-                        </button>
+                      <div className="col">
+                        <input
+                          type="submit"
+                          className="btn btn-outline-info"
+                          value="search"
+                        />
                       </div>
                     </div>
                   </form>
                   <WeatherInfo data={weatherData} />
                   <City data={weatherData} />
+                  <WeatherForecast city={weatherData.city} />
                 </div>
               </div>
             </div>

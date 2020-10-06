@@ -1,4 +1,14 @@
-.footer .card-img-overlay {
+.footer {
+  color: rgb(0, 255, 200);
   position: relative;
-  top: -40px;
+  bottom: 55px;
+}
+a:link,
+a:visited {
+  color: rgb(145, 255, 0);
+}
+
+a:hover {
+  font-size: 15px;
+  font-weight: bold;
 }

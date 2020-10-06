@@ -1,0 +1,19 @@
+.weatherForecastPreview .col {
+  bottom: 400px;
+  left: 25px;
+  background-color: rgba(224, 192, 197, 0.35);
+  padding: 0px 60px;
+  border: 1px solid #bc5756;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0);
+}
+.weatherForecastPreview .weatherIcon {
+  position: relative;
+  right: 30px;
+}
+.weatherForecastPreview .temp {
+  margin-bottom: 60px;
+}
+.weatherInfo {
+  font-weight: bold;
+}
